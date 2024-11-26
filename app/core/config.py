@@ -12,6 +12,7 @@ class Settings(BaseSettings):
     # Supabase Configuration
     SUPABASE_URL: AnyUrl
     SUPABASE_SERVICE_ROLE_KEY: SecretStr
+    SUPABASE_ANON_KEY: SecretStr
 
     # OpenAI Configuration
     OPENAI_API_KEY: SecretStr
