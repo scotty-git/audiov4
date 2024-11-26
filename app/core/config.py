@@ -1,11 +1,11 @@
+from pydantic import PostgresDsn, SecretStr, AnyUrl, computed_field, Field
 from pydantic_settings import BaseSettings, SettingsConfigDict
-from typing import List, Optional
-from pydantic import PostgresDsn, SecretStr, AnyUrl, computed_field
+from typing import List, Optional, Literal
 
 class Settings(BaseSettings):
     # Project Settings
-    PROJECT_NAME: str = "AudioV4"
-    ENVIRONMENT: str = "development"
+    PROJECT_NAME: str = Field(..., env="PROJECT_NAME")  # Add PROJECT_NAME to the settings configuration
+    ENVIRONMENT: Literal["development", "production", "testing"] = "development"
     DEBUG: bool = True
     LOG_LEVEL: str = "DEBUG"
 
